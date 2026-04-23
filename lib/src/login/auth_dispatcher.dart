@@ -5,7 +5,7 @@ import 'package:alumini_screen/src/login/login_page.dart';
 // import 'package:alumini_screen/src/alumni/profile/profile_setup_page.dart' as alumni;
 // import 'package:alumini_screen/src/student/profile/profile_setup_page.dart' as student;
 import 'package:alumini_screen/src/alumni/shared/widgets/main_layout.dart';
-// import 'package:alumini_screen/src/student/shared/widgets/student_main_layout.dart'; // REMOVED
+import 'package:alumini_screen/src/student/shared/widgets/student_main_layout.dart';
 import 'package:alumini_screen/src/admin/dashboard/admin_main_layout.dart';
 
 /// A widget that decides which screen to show based on the current authentication state.
@@ -35,8 +35,10 @@ class AuthDispatcher extends StatelessWidget {
         // We no longer force setup here to ensure a faster login-to-dashboard UX.
         // The dashboard or profile pages can handle missing data gracefully.
 
-        // 4. Fallback to Alumni Dashboard
-        return MainLayout();
+        // 4. Fallback to Dashboard
+        return auth.role == UserRole.student 
+            ? StudentMainLayout() 
+            : MainLayout();
       },
     );
   }

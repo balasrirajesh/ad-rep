@@ -4,7 +4,7 @@ import 'package:alumini_screen/src/alumni/core/theme/app_theme.dart';
 import 'package:alumini_screen/src/alumni/shared/widgets/main_layout.dart';
 import 'package:provider/provider.dart';
 import 'package:alumini_screen/src/alumni/shared/providers/auth_provider.dart';
-// import 'package:alumini_screen/src/student/shared/widgets/student_main_layout.dart'; // REMOVED
+import 'package:alumini_screen/src/student/shared/widgets/student_main_layout.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -47,7 +47,9 @@ class _SignupScreenState extends State<SignupScreen> {
         transitionDuration: const Duration(milliseconds: 800),
         pageBuilder: (context, animation, secondaryAnimation) => FadeTransition(
           opacity: animation,
-          child: MainLayout(),
+          child: auth.role == UserRole.student 
+              ? StudentMainLayout() 
+              : MainLayout(),
         ),
       ),
       (Route<dynamic> route) => false,
