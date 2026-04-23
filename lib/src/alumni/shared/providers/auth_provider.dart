@@ -9,7 +9,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Manages the authentication state and user profile information.
-enum UserRole { mentor, student, admin }
+enum UserRole { mentor, admin }
 enum UserStatus { incomplete, pending, verified, rejected }
 
 class AuthProvider with ChangeNotifier {
@@ -247,7 +247,7 @@ class AuthProvider with ChangeNotifier {
     final lowEmail = email.toLowerCase();
     _role = lowEmail.endsWith('@admin.com') 
         ? UserRole.admin 
-        : (lowEmail.endsWith('@alumin.com') ? UserRole.mentor : UserRole.student);
+        : UserRole.mentor;
     notifyListeners();
 
     try {
@@ -273,10 +273,8 @@ class AuthProvider with ChangeNotifier {
         final backendRole = data['role'];
         if (backendRole == 'admin') {
           _role = UserRole.admin;
-        } else if (backendRole == 'mentor') {
-          _role = UserRole.mentor;
         } else {
-          _role = UserRole.student;
+          _role = UserRole.mentor;
         }
 
         _isDemoMode = false;
@@ -315,7 +313,7 @@ class AuthProvider with ChangeNotifier {
     final lowEmail = email.toLowerCase();
     _role = lowEmail.endsWith('@admin.com') 
         ? UserRole.admin 
-        : (lowEmail.endsWith('@alumin.com') ? UserRole.mentor : UserRole.student);
+        : UserRole.mentor;
     _userId = '${DateTime.now().millisecondsSinceEpoch}';
     _email = email;
     String rawName = email.contains('@') ? email.split('@')[0] : email;
@@ -374,7 +372,7 @@ class AuthProvider with ChangeNotifier {
 
     // 2. Persist to Backend
     if (_userId != null && !_isDemoMode) {
-      final module = (_role == UserRole.mentor) ? 'alumni' : 'student';
+      final module = 'alumni';
       final url = getBaseUrl('$module/profile/$_userId');
       
       try {
@@ -470,7 +468,7 @@ class AuthProvider with ChangeNotifier {
     final lowEmail = email.toLowerCase();
     _role = lowEmail.endsWith('@admin.com') 
         ? UserRole.admin 
-        : (lowEmail.endsWith('@alumin.com') ? UserRole.mentor : UserRole.student);
+        : UserRole.mentor;
     notifyListeners();
   }
 }
