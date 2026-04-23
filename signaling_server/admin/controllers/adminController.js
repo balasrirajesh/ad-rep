@@ -1,0 +1,155 @@
+const User = require('../../core/models/User');
+const MentorshipRequest = require('../../core/models/MentorshipRequest');
+// We require index.js at runtime inside handlers to avoid circular dependency issues
+
+exports.getStats = async (req, res) => {
+    try {
+        const totalStudents = await User.countDocuments({ role: 'student' });
+        const totalAlumni = await User.countDocuments({ role: 'mentor' });
+        const verifiedAlumni = await User.countDocuments({ role: 'mentor', status: 'verified' });
+        const pendingRequests = await User.countDocuments({ status: 'pending' });
+
+        // Dynamic counts
+        const totalConnections = await MentorshipRequest.countDocuments();
+        const { rooms } = require('../../index');
+        const activeSessions = rooms ? Object.keys(rooms).length : 0;
+
+        res.json({
+            totalStudents,
+            totalAlumni,
+            verifiedAlumni,
+            pendingRequests,
+            totalConnections, 
+            activeSessions     
+        });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+exports.getAllUsers = async (req, res) => {
+    try {
+        const { role, status, search } = req.query;
+        let query = {};
+        
+        if (role) query.role = role;
+        if (status) query.status = status;
+        if (search) {
+            query.$or = [
+                { name: { $regex: search, $options: 'i' } },
+                { email: { $regex: search, $options: 'i' } }
+            ];
+        }
+
+        const users = await User.find(query).sort({ createdAt: -1 });
+        res.json(users);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+exports.updateUserStatus = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+        
+        const user = await User.findOneAndUpdate(
+            { id: id }, 
+            { status: status }, 
+            { new: true }
+        );
+        
+        if (!user) return res.status(404).json({ message: 'User not found' });
+        res.json(user);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+exports.broadcastAnnouncement = async (req, res) => {
+    try {
+        const { title, message, target } = req.body;
+        const { io } = require('../../index'); // Runtime require to avoid circularity
+
+        console.log(`[ADMIN BROADCAST] To: ${target} | ${title}: ${message}`);
+
+        if (io) {
+            // Broadcast to all connected clients
+            io.emit('new-announcement', {
+                title,
+                message,
+                target,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        res.json({ message: 'Announcement broadcasted successfully' });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+exports.terminateSession = async (req, res) => {
+    try {
+        const { roomId } = req.params;
+        const { rooms, io } = require('../../index'); // Runtime require to avoid circularity
+
+        if (rooms && rooms[roomId]) {
+            console.log(`[ADMIN SUPERIOR] Terminating room: ${roomId}`);
+            
+            // Notify all participants in the room
+            io.to(roomId).emit('mentor-left');
+            
+            // Delete the room
+            delete rooms[roomId];
+            
+            // Broadcast updated room list
+            const roomList = Object.keys(rooms).map(id => {
+                const pMap = rooms[id].participants || {};
+                const hosts = Object.values(pMap).filter(p => p.role === 'mentor' || p.role === 'admin');
+                return {
+                    id,
+                    title: rooms[id].title || id,
+                    isLive: hosts.length > 0,
+                    attendees: Object.keys(pMap).length,
+                    startTime: rooms[id].startTime
+                };
+            });
+            io.emit('room-list', roomList);
+
+            res.json({ message: `Session ${roomId} terminated successfully` });
+        } else {
+            res.status(404).json({ message: 'Session not found or already ended' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+exports.getConnections = async (req, res) => {
+    try {
+        const connections = await MentorshipRequest.find()
+            .populate('student', 'name collegeName')
+            .populate('mentor', 'name collegeName')
+            .sort({ createdAt: -1 });
+        res.json(connections);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+exports.moderateConnection = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+        const conn = await MentorshipRequest.findOneAndUpdate(
+            { id: id },
+            { status: status },
+            { new: true }
+        );
+        if (!conn) return res.status(404).json({ message: 'Connection not found' });
+        res.json(conn);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};

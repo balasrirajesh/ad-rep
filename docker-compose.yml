@@ -1,0 +1,44 @@
+version: "3.9"
+
+# ──────────────────────────────────────────────────────────────
+#  Alumni Connect – Docker Compose
+#
+#  Services:
+#    signaling_server Unified Node.js Backend (REST + WebRTC) → :3000
+# ──────────────────────────────────────────────────────────────
+
+services:
+
+  # ─────────────────────────────────────────
+  #  2. WebRTC Signaling + Media Server
+  # ─────────────────────────────────────────
+  signaling_server:
+    build:
+      context: ./signaling_server
+      dockerfile: Dockerfile
+    container_name: alumni_signaling
+    restart: unless-stopped
+    ports:
+      - "3000:3000"    # Socket.IO / signaling
+      - "8000:8000"    # NodeMediaServer HTTP (HLS/DASH)
+      - "1935:1935"    # RTMP live stream ingestion
+    environment:
+      PORT: "3000"
+      FFMPEG_PATH: /usr/bin/ffmpeg
+    volumes:
+      - signaling_media:/app/media   # persist HLS/DASH segments
+    networks:
+      - alumni_net
+
+# ──────────────────────────────────────────────────────────────
+#  Shared Network
+# ──────────────────────────────────────────────────────────────
+networks:
+  alumni_net:
+    driver: bridge
+
+# ──────────────────────────────────────────────────────────────
+#  Named Volumes
+# ──────────────────────────────────────────────────────────────
+volumes:
+  signaling_media:
