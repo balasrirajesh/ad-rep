@@ -1,10 +1,9 @@
 import 'dart:io';
-import 'package:alumini_screen/src/alumni/shared/core/theme/app_theme.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/auth_provider.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/chat_provider.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/mentorship_provider.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/notification_provider.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/ui_provider.dart';
+import 'package:alumini_screen/src/shared/core/theme/app_theme.dart';
+import 'package:alumini_screen/src/shared/providers/auth_provider.dart';
+import 'package:alumini_screen/src/shared/providers/chat_provider.dart';
+import 'package:alumini_screen/src/shared/providers/notification_provider.dart';
+import 'package:alumini_screen/src/shared/providers/ui_provider.dart';
 import 'package:alumini_screen/src/admin/shared/providers/admin_provider.dart';
 import 'package:alumini_screen/src/login/login_page.dart';
 import 'package:flutter/material.dart';
@@ -47,13 +46,7 @@ void main() async {
     ChangeNotifierProvider(create: (_) => UIProvider()),
     ChangeNotifierProvider(create: (_) => AdminProvider()),
 
-    // MentorshipProvider depends on ChatProvider and AuthProvider for ID-aware fetching
-    ChangeNotifierProxyProvider2<ChatProvider, AuthProvider, MentorshipProvider>(
-      create: (_) => MentorshipProvider(),
-      update: (_, chat, auth, mentorship) => (mentorship ?? MentorshipProvider())
-        ..setChatProvider(chat)
-        ..syncWithAuth(auth),
-    ),
+
   ];
 
   if (kIsWeb) {

@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:alumini_screen/src/alumni/core/theme/app_theme.dart';
-import 'package:alumini_screen/src/signup/signup_page.dart';
-import 'package:alumini_screen/src/alumni/shared/widgets/main_layout.dart';
-// import 'package:alumini_screen/src/student/shared/widgets/student_main_layout.dart';
+import 'package:alumini_screen/src/shared/core/theme/app_theme.dart';
+// import 'package:alumini_screen/src/signup/signup_page.dart'; // REMOVED
+import 'package:alumini_screen/src/shared/widgets/main_layout.dart';
 import 'package:provider/provider.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/auth_provider.dart';
-import 'package:alumini_screen/src/alumni/core/widgets/server_ip_dialog.dart';
+import 'package:alumini_screen/src/shared/providers/auth_provider.dart';
+import 'package:alumini_screen/src/shared/core/widgets/server_ip_dialog.dart';
 
-/// A screen that allows users to log into the application.
-/// 
-/// This screen provides fields for email and password. For this demo,
-/// it performs a mock authentication by extracting a name from the email
-/// and updating the [AuthProvider] profile before navigating to the [MainLayout].
+/// A screen that allows administrators to log into the application.
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -135,7 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 40),
                   
                   Text(
-                    "Welcome Back",
+                    "Administrator Portal",
                     textAlign: TextAlign.center,
                     style: textTheme.displayLarge,
                   ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.3),
@@ -143,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 12),
                   
                   Text(
-                    "Join the elite network of alumni and mentors",
+                    "Manage the elite network of alumni and mentors",
                     textAlign: TextAlign.center,
                     style: textTheme.bodyMedium,
                   ).animate().fadeIn(delay: 300.ms).slideY(begin: 0.3),
@@ -213,22 +208,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ).animate().fadeIn(delay: 800.ms),
                   
                   const SizedBox(height: 40),
-                  
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("New here?", style: textTheme.bodyMedium),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const SignupScreen()),
-                          );
-                        },
-                        child: const Text("Create Account", style: TextStyle(fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ).animate().fadeIn(delay: 900.ms),
                   
                   const SizedBox(height: 20),
                 ],

@@ -5,7 +5,7 @@ import 'package:alumini_screen/src/admin/users/user_management_page.dart';
 import 'package:alumini_screen/src/admin/connections/connection_monitor_page.dart';
 import 'package:alumini_screen/src/admin/sessions/session_control_page.dart';
 import 'package:alumini_screen/src/admin/announcements/announcements_page.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/auth_provider.dart';
+import 'package:alumini_screen/src/shared/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 
 class AdminMainLayout extends StatefulWidget {

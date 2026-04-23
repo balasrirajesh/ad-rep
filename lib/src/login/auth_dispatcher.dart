@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/auth_provider.dart';
+import 'package:alumini_screen/src/shared/providers/auth_provider.dart';
 import 'package:alumini_screen/src/login/login_page.dart';
-// import 'package:alumini_screen/src/alumni/profile/profile_setup_page.dart' as alumni;
-// import 'package:alumini_screen/src/student/profile/profile_setup_page.dart' as student;
-import 'package:alumini_screen/src/alumni/shared/widgets/main_layout.dart';
-import 'package:alumini_screen/src/student/shared/widgets/student_main_layout.dart';
+// import 'package:alumini_screen/src/shared/widgets/main_layout.dart'; // REMOVED
+// import 'package:alumini_screen/src/student/shared/widgets/student_main_layout.dart'; // REMOVED
 import 'package:alumini_screen/src/admin/dashboard/admin_main_layout.dart';
 
 /// A widget that decides which screen to show based on the current authentication state.
@@ -26,19 +24,8 @@ class AuthDispatcher extends StatelessWidget {
           return const LoginScreen();
         }
 
-        // 2. Direct Admin immediately (Bypass all setup)
-        if (auth.role == UserRole.admin) {
-          return const AdminMainLayout();
-        }
-
-        // 3. User Dashboard Dispatch
-        // We no longer force setup here to ensure a faster login-to-dashboard UX.
-        // The dashboard or profile pages can handle missing data gracefully.
-
-        // 4. Fallback to Dashboard
-        return auth.role == UserRole.student 
-            ? StudentMainLayout() 
-            : MainLayout();
+        // 2. Admin Dashboard
+        return const AdminMainLayout();
       },
     );
   }

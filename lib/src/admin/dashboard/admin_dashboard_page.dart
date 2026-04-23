@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:alumini_screen/src/admin/shared/providers/admin_provider.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/mentorship_provider.dart';
-import 'package:alumini_screen/src/alumni/shared/classroom/interactive_classroom_page.dart';
+import 'package:alumini_screen/src/shared/providers/mentorship_provider.dart';
+import 'package:alumini_screen/src/shared/classroom/interactive_classroom_page.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 class AdminDashboardPage extends StatefulWidget {
