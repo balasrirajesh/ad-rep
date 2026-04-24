@@ -57,7 +57,7 @@ class MentorshipProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      if (_authProvider!.role == UserRole.mentor) {
+      if (_authProvider!.role == UserRole.admin) {
         await _service.fetchRequests(mentorId: _authProvider!.userId);
       } else {
         await _service.fetchRequests(studentId: _authProvider!.userId);

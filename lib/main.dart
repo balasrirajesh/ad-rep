@@ -1,16 +1,15 @@
 import 'dart:io';
+import 'package:alumini_screen/src/admin/dashboard/admin_main_layout.dart';
 import 'package:alumini_screen/src/shared/core/theme/app_theme.dart';
 import 'package:alumini_screen/src/shared/providers/auth_provider.dart';
 import 'package:alumini_screen/src/shared/providers/chat_provider.dart';
 import 'package:alumini_screen/src/shared/providers/notification_provider.dart';
 import 'package:alumini_screen/src/shared/providers/ui_provider.dart';
 import 'package:alumini_screen/src/admin/shared/providers/admin_provider.dart';
-import 'package:alumini_screen/src/login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
-import 'package:alumini_screen/src/login/auth_dispatcher.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -76,9 +75,9 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       title: 'Alumni Connect',
       theme: AppTheme.lightTheme,
-      home: const AuthDispatcher(),
+      home: const AdminMainLayout(),
       routes: {
-        '/home': (context) => const AuthDispatcher(),
+        '/home': (context) => const AdminMainLayout(),
       },
       debugShowCheckedModeBanner: false,
     );

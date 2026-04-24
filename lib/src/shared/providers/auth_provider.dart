@@ -5,11 +5,12 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:alumini_screen/src/shared/core/theme/app_theme.dart';
 // ignore: depend_on_referenced_packages
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Manages the authentication state and user profile information.
-enum UserRole { admin }
+enum UserRole { admin, mentor, student }
 enum UserStatus { incomplete, pending, verified, rejected }
 
 class AuthProvider with ChangeNotifier {
@@ -189,7 +190,7 @@ class AuthProvider with ChangeNotifier {
   bool _isLoading = false;
   String? _error;
   bool _isDemoMode = false;
-  UserRole _role = UserRole.mentor;
+  UserRole _role = UserRole.admin;
   UserStatus _status = UserStatus.incomplete;
 
   bool get isLoading => _isLoading;
@@ -398,7 +399,7 @@ class AuthProvider with ChangeNotifier {
     _status = UserStatus.pending;
     notifyListeners();
 
-    if (_userId != null && !_isDemoMode && _role == UserRole.mentor) {
+    if (_userId != null && !_isDemoMode) {
       final url = getBaseUrl('alumni/verify/$_userId');
       try {
         await http.post(Uri.parse(url)).timeout(const Duration(seconds: 5));
@@ -445,7 +446,7 @@ class AuthProvider with ChangeNotifier {
   void logout() {
     _userId = null;
     _isDemoMode = false;
-    _role = UserRole.mentor;
+    _role = UserRole.admin;
     _status = UserStatus.incomplete;
     _forceSetup = false;
     notifyListeners();
