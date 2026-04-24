@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/auth_provider.dart';
-import 'package:alumini_screen/src/alumni/core/theme/app_theme.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/providers/auth_provider.dart';
+import 'package:graduway/src_legacy/src/alumni/core/theme/app_theme.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 

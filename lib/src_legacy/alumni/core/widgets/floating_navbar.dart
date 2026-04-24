@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:alumini_screen/src/alumni/core/theme/app_theme.dart';
+import 'package:graduway/src_legacy/src/alumni/core/theme/app_theme.dart';
 
 class FloatingNavbar extends StatelessWidget {
   final int selectedIndex;

@@ -1,9 +1,9 @@
-import 'package:alumini_screen/src/alumni/mentorship/alumni_requests_page.dart';
-import 'package:alumini_screen/src/alumni/mentorship/sessions_page.dart';
-import 'package:alumini_screen/src/alumni/profile/achievements_page.dart';
-import 'package:alumini_screen/src/alumni/profile/professional_page.dart';
-import 'package:alumini_screen/src/alumni/profile/scheduler_page.dart';
-import 'package:alumini_screen/src/alumni/profile/skills_page.dart';
+import 'package:graduway/src_legacy/src/alumni/mentorship/alumni_requests_page.dart';
+import 'package:graduway/src_legacy/src/alumni/mentorship/sessions_page.dart';
+import 'package:graduway/src_legacy/src/alumni/profile/achievements_page.dart';
+import 'package:graduway/src_legacy/src/alumni/profile/professional_page.dart';
+import 'package:graduway/src_legacy/src/alumni/profile/scheduler_page.dart';
+import 'package:graduway/src_legacy/src/alumni/profile/skills_page.dart';
 import 'package:flutter/material.dart';
 
 class ProfileDashboardGrid extends StatelessWidget {

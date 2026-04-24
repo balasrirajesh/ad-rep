@@ -1,8 +1,8 @@
 // webrtc direct peer-to-peer video meeting and session hosting
 import 'package:flutter/material.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
-import 'package:alumini_screen/src/alumni/shared/services/classroom_service.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/auth_provider.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/providers/auth_provider.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/services/classroom_service.dart';
 
 import 'dart:developer' as dev;
 

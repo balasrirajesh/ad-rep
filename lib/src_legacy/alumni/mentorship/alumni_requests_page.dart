@@ -1,8 +1,9 @@
-import 'package:alumini_screen/src/alumni/mentorship/mentorship_request_card.dart';
+
 import 'package:flutter/material.dart';
-import 'package:alumini_screen/src/alumni/shared/models/mentorship_model.dart';
+import 'package:graduway/src_legacy/src/alumni/mentorship/mentorship_request_card.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/models/mentorship_model.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/providers/mentorship_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/mentorship_provider.dart';
 
 /// A page that displays a list of pending mentorship requests for an alumni mentor.
 /// 

@@ -1,10 +1,10 @@
 import 'package:flutter_webrtc/flutter_webrtc.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/providers/auth_provider.dart';
 import 'package:socket_io_client/socket_io_client.dart' as io;
 import 'package:image_picker/image_picker.dart';
 import 'dart:io' as dart_io;
 import 'dart:convert';
 import 'dart:developer' as dev;
-import 'package:alumini_screen/providers/auth_provider.dart';
 
 /// Roles for the classroom:
 /// - Mentor (Alumni/Faculty): Can start sessions, send offers.

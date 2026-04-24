@@ -1,9 +1,10 @@
-import 'package:alumini_screen/src/alumni/chat/chat_detail_page.dart';
-import 'package:alumini_screen/src/alumni/mentorship/mentorship_request_card.dart';
+
 import 'package:flutter/material.dart';
+import 'package:graduway/src_legacy/src/alumni/chat/chat_detail_page.dart';
+import 'package:graduway/src_legacy/src/alumni/mentorship/mentorship_request_card.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/models/mentorship_model.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/providers/mentorship_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:alumini_screen/src/alumni/shared/models/mentorship_model.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/mentorship_provider.dart';
 
 /// A central hub for mentors to manage their incoming and active mentorships.
 /// 

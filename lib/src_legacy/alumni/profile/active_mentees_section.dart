@@ -1,8 +1,8 @@
-import 'package:alumini_screen/src/alumni/chat/chat_detail_page.dart';
+import 'package:graduway/src_legacy/src/alumni/chat/chat_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/mentorship_provider.dart';
-import 'package:alumini_screen/src/alumni/shared/models/mentorship_model.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/providers/mentorship_provider.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/models/mentorship_model.dart';
 
 class ActiveMenteesSection extends StatelessWidget {
   const ActiveMenteesSection({super.key});

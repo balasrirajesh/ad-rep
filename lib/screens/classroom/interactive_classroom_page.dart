@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/providers/auth_provider.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/providers/notification_provider.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/services/classroom_service.dart';
 import 'package:provider/provider.dart';
-import 'package:alumini_screen/services/classroom_service.dart';
-import 'package:alumini_screen/providers/auth_provider.dart';
-import 'package:alumini_screen/providers/notification_provider.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:convert';
 import 'dart:developer' as dev;

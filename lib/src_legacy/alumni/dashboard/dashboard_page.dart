@@ -1,15 +1,15 @@
-import 'package:alumini_screen/src/alumni/dashboard/server_settings_page.dart';
-import 'package:alumini_screen/src/alumni/mentorship/alumni_requests_page.dart';
-import 'package:alumini_screen/src/alumni/mentorship/broadcast_streaming_page.dart';
-import 'package:alumini_screen/src/alumni/mentorship/mentees_page.dart';
-import 'package:alumini_screen/src/alumni/mentorship/sessions_page.dart';
-import 'package:alumini_screen/src/alumni/notifications/notifications_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:graduway/src_legacy/src/alumni/core/theme/app_theme.dart';
+import 'package:graduway/src_legacy/src/alumni/dashboard/server_settings_page.dart';
+import 'package:graduway/src_legacy/src/alumni/mentorship/alumni_requests_page.dart';
+import 'package:graduway/src_legacy/src/alumni/mentorship/broadcast_streaming_page.dart';
+import 'package:graduway/src_legacy/src/alumni/mentorship/mentees_page.dart';
+import 'package:graduway/src_legacy/src/alumni/mentorship/sessions_page.dart';
+import 'package:graduway/src_legacy/src/alumni/notifications/notifications_page.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/providers/auth_provider.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/providers/mentorship_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/auth_provider.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/mentorship_provider.dart';
-import 'package:alumini_screen/src/alumni/core/theme/app_theme.dart';
 // import 'package:flutter_animate/flutter_animate.dart';
 
 class Dashboard extends StatefulWidget {

@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:graduway/src_legacy/src/alumni/shared/models/chat_model.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/models/mentorship_model.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/providers/auth_provider.dart';
 import 'package:http/http.dart' as http;
-import 'package:alumini_screen/src/alumni/shared/models/mentorship_model.dart';
-import 'package:alumini_screen/src/alumni/shared/models/chat_model.dart';
 import 'package:flutter/foundation.dart';
 
-import 'package:alumini_screen/providers/auth_provider.dart';
 
 /// Singleton service that manages mentorship requests and chat message streams.
 /// 

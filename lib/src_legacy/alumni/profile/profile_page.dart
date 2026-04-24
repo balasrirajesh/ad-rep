@@ -1,10 +1,10 @@
-import 'package:alumini_screen/src/alumni/profile/active_mentees_section.dart';
-import 'package:alumini_screen/src/alumni/profile/mentorship_bio_card.dart';
-import 'package:alumini_screen/src/alumni/profile/profile_dashboard_grid.dart';
+import 'package:graduway/src_legacy/src/alumni/profile/active_mentees_section.dart';
+import 'package:graduway/src_legacy/src/alumni/profile/mentorship_bio_card.dart';
+import 'package:graduway/src_legacy/src/alumni/profile/profile_dashboard_grid.dart';
 import 'package:flutter/material.dart';
-import 'package:alumini_screen/src/alumni/core/theme/app_theme.dart';
+import 'package:graduway/src_legacy/src/alumni/core/theme/app_theme.dart';
 import 'package:provider/provider.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/auth_provider.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/providers/auth_provider.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 class ProfileScreen extends StatelessWidget {

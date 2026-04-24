@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:graduway/src_legacy/src/admin/shared/providers/admin_provider.dart';
+import 'package:graduway/src_legacy/src/alumni/mentorship/interactive_classroom_page.dart';
 import 'package:provider/provider.dart';
-import 'package:alumini_screen/providers/admin_provider.dart';
-import 'package:alumini_screen/providers/auth_provider.dart';
-import 'package:alumini_screen/screens/classroom/interactive_classroom_page.dart';
 import 'dart:math' as math;
 import 'package:flutter_animate/flutter_animate.dart';
 

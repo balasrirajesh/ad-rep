@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:alumini_screen/src/alumni/shared/models/mentorship_model.dart';
-import 'package:alumini_screen/src/alumni/shared/services/mentorship_service.dart';
+import 'package:graduway/services/mentorship_service.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/models/mentorship_model.dart';
 
 /// A card widget that displays details of a mentorship request.
 /// 

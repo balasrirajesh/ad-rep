@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/models/chat_model.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/models/mentorship_model.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/providers/chat_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
-import 'package:alumini_screen/src/alumni/shared/models/chat_model.dart';
-import 'package:alumini_screen/src/alumni/shared/models/mentorship_model.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/chat_provider.dart';
 
 /// A detailed chat screen for communication between a mentor and a student.
 /// 

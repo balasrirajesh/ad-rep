@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/auth_provider.dart';
-import 'package:alumini_screen/src/alumni/shared/services/network_discovery_service.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/providers/auth_provider.dart';
+import 'package:graduway/src_legacy/src/alumni/shared/services/network_discovery_service.dart';
 import 'package:http/http.dart' as http;
 import 'dart:io';
 
