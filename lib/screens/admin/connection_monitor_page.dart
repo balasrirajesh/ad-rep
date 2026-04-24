@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:alumini_screen/src/admin/shared/providers/admin_provider.dart';
+import 'package:alumini_screen/providers/admin_provider.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 class ConnectionMonitorPage extends StatefulWidget {

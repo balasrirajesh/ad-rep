@@ -39,6 +39,7 @@ class AppColors {
   static const Color infoSurface    = Color(0xFFDBEAFE);
 
   // ── Backgrounds ───────────────────────────────────────────────────────────
+  static const Color background     = Color(0xFFF8F9FF); // legacy background
   static const Color bgPage         = Color(0xFFF8F9FF); // very light indigo-white
   static const Color bgCard         = Color(0xFFFFFFFF);
   static const Color bgCardAlt      = Color(0xFFF1F5F9); // slate-100
@@ -48,6 +49,7 @@ class AppColors {
   // ── Text ──────────────────────────────────────────────────────────────────
   static const Color textPrimary    = Color(0xFF1E1B4B); // deep indigo
   static const Color textSecondary  = Color(0xFF475569); // slate-600
+  static const Color textLight      = Color(0xFF94A3B8); // legacy textLight
   static const Color textMuted      = Color(0xFF94A3B8); // slate-400
   static const Color textOnDark     = Color(0xFFFFFFFF);
   static const Color textOnPrimary  = Color(0xFFFFFFFF);

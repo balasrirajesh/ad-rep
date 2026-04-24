@@ -1,9 +1,10 @@
-import 'package:alumini_screen/src/alumni/shared/classroom/interactive_classroom_page.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/auth_provider.dart';
+import 'package:alumini_screen/screens/classroom/interactive_classroom_page.dart';
+import 'package:alumini_screen/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:alumini_screen/src/alumni/shared/providers/mentorship_provider.dart';
-import 'package:alumini_screen/src/alumni/core/theme/app_theme.dart';
+import 'package:alumini_screen/providers/mentorship_provider.dart';
+import 'package:alumini_screen/theme/app_theme.dart';
+import 'package:alumini_screen/theme/app_colors.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 class SessionsPage extends StatefulWidget {
