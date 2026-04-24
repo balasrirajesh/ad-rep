@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:device_preview/device_preview.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'app.dart';
+import 'package:dotenv/dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
